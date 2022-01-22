@@ -1,0 +1,34 @@
+<ion-app *ngIf="transakcia$ | async as transakcia">
+		  <ion-header>
+			 <ion-toolbar>
+				<ion-buttons slot="start">
+				  <ion-back-button (click)="goBack()"></ion-back-button>
+				</ion-buttons>
+			 </ion-toolbar>
+		  </ion-header>
+<ion-content>
+		  <ion-card>
+			 <ion-card-header>
+						<ion-card-title>Detail transakcie</ion-card-title>
+			 </ion-card-header>
+		  </ion-card>
+		  <ion-list>
+  <ion-item>
+			 <ion-label> ID: {{ transakcia.id }}</ion-label>
+  </ion-item>
+  <ion-item>
+			 <ion-label> ID vlastnika: {{ transakcia.vlastnikId }} </ion-label>
+  </ion-item>
+  <ion-item>
+			 <ion-label> Typ transakcie: {{ transakcia.typ }}</ion-label>
+  </ion-item>
+  <ion-item>
+			 <ion-label>Suma: {{ transakcia.suma }}</ion-label>
+  </ion-item>
+  <ion-item>
+			 <ion-label>Je to prijem?: {{ transakcia.jeToPrijem }}</ion-label>
+  </ion-item>
+</ion-list>
+
+</ion-content>
+</ion-app>

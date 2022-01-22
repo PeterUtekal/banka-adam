@@ -1,0 +1,51 @@
+<div *ngIf="klient$ | async as klient">
+<ion-app>
+		  <ion-header>
+			 <ion-toolbar>
+				<ion-buttons slot="start">
+				  <ion-back-button (click)="goBack(klient)">Ulozit</ion-back-button>
+				</ion-buttons>
+			 </ion-toolbar>
+		  </ion-header>
+<ion-content>
+		  <ion-card>
+			 <ion-card-header>
+						<ion-card-title> Úprava klienta s ID {{ klient.id }}</ion-card-title>
+			 </ion-card-header>
+		  </ion-card>
+		  <ion-list>
+  <ion-item>
+			 <ion-label>ID Klienta: {{ klient.id }}</ion-label>
+  </ion-item>
+  <ion-item>
+			 <ion-label>Titul pred menom: </ion-label>
+			 <ion-input type="text" [(ngModel)]="klient.titulPred"></ion-input>
+  </ion-item>
+  <ion-item>
+			 <ion-label>Meno: </ion-label>
+			 <ion-input type="text" [(ngModel)]="klient.meno"></ion-input>
+  </ion-item>
+
+  <ion-item>
+			 <ion-label>Priezvisko: </ion-label>
+			 <ion-input type="text" [(ngModel)]="klient.priezvisko"></ion-input>
+  </ion-item>
+  <ion-item>
+			 <ion-label>Titul za menom: </ion-label>
+			 <ion-input type="text" [(ngModel)]="klient.titulZa"></ion-input>
+  </ion-item>
+
+  <ion-item>
+			 <ion-label>Trvalý pobyt: </ion-label>
+			 <ion-input type="text" [(ngModel)]="klient.trvalyPobyt"></ion-input>
+  </ion-item>
+
+  <ion-item>
+			 <ion-label>Korešpondenčná adresa: </ion-label>
+			 <ion-input type="text" [(ngModel)]="klient.korespondencnaAdresa"></ion-input>
+  </ion-item>
+
+</ion-list>
+</ion-content>
+</ion-app>
+</div>

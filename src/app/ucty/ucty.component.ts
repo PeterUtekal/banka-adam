@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router, ParamMap } from '@angular/router';
 import { Observable } from 'rxjs';
 import { Ucet } from '../ucet';
@@ -8,13 +9,14 @@ import { Klient } from '../klient';
 import { ETypTransakcie } from '../e-typ-transakcie.enum';
 import { Transakcia } from '../transakcia';
 import { KlientService } from '../klient.service';
+import { any } from '@amcharts/amcharts4/.internal/core/utils/Array';
 
 @Component({
-  selector: 'app-tab2',
-  templateUrl: 'tab2.page.html',
-  styleUrls: ['tab2.page.scss']
+  selector: 'app-ucty',
+  templateUrl: './ucty.component.html',
+  styleUrls: ['./ucty.component.scss'],
 })
-export class Tab2Page implements OnInit{
+export class UctyComponent implements OnInit {
 
   ucty$!: Observable<Ucet[]>;
   transakcie$: Observable<Transakcia[]> = new Observable<Transakcia[]>();;
@@ -119,6 +121,4 @@ export class Tab2Page implements OnInit{
     priezvisko = this.klientService.klienti[id].priezvisko || '';
     return `${meno} ${priezvisko}`;
   }
-
-
 }

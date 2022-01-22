@@ -1,0 +1,41 @@
+<div *ngIf="klient$ | async as klient">
+<ion-app>
+		  <ion-header>
+			 <ion-toolbar>
+				<ion-buttons slot="start">
+				  <ion-back-button (click)="goBack()"></ion-back-button>
+				</ion-buttons>
+			 </ion-toolbar>
+		  </ion-header>
+<ion-content>
+		  <ion-card>
+			 <ion-card-header>
+						<ion-card-title>Vitajte ! {{ klient.meno }}</ion-card-title>
+			 </ion-card-header>
+		  </ion-card>
+		  <ion-list>
+  <ion-item>
+			 <ion-label>ID Klienta: {{ klient.id }}</ion-label>
+  </ion-item>
+  <ion-item>
+			 <ion-label> Meno a priezvisko: {{ klient.titulPred }} {{ klient.meno }} {{ klient.titulZa }}</ion-label>
+  </ion-item>
+  <ion-item>
+			 <ion-label> Trvalý pobyt: {{ klient.trvalyPobyt }}</ion-label>
+  </ion-item>
+  <ion-item *ngIf="klient.korespondencnaAdresa != ''">
+			 <ion-label>Korešpondenčná adresa: {{ klient.korespondencnaAdresa }}</ion-label>
+  </ion-item>
+</ion-list>
+<ion-grid>
+  <ion-row>
+    <ion-col>
+      <ion-button (click)="upravitKlienta(klient)">Upraviť</ion-button> 
+    </ion-col>
+    <ion-col>
+    </ion-col>
+  </ion-row>
+</ion-grid>
+</ion-content>
+</ion-app>
+</div>
