@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { BarcodeScanner, BarcodeScannerOptions } from '@ionic-native/barcode-scanner/ngx';
+import { Storage } from '@ionic/storage-angular';
+
 
 @Component({
   selector: 'app-tab3',
@@ -13,7 +15,21 @@ export class Tab3Page{
   encodeData: any;
   inputData: any;
 
-  constructor(private barcodeScanner: BarcodeScanner) { }
+  constructor(
+
+			 private barcodeScanner: BarcodeScanner,
+			 private storage: Storage
+  ) { }
+		  
+  async ngOnInit() {
+
+			 //
+			 // demonstrate ionic storage
+    await this.storage.create();
+    await this.storage.set('name', 'Mr. Ionitron');
+	 const name = await this.storage.get('name');
+
+  }
 
   scanBarcode() {
     const options: BarcodeScannerOptions = {
@@ -30,6 +46,7 @@ export class Tab3Page{
     this.barcodeScanner.scan(options).then(barcodeData => {
       console.log('Barcode data', barcodeData);
       this.scannedData = barcodeData;
+		this.storage.set('scannedData', barcodeData);		
 
     }).catch(err => {
       console.log('Error', err);
