@@ -14,6 +14,7 @@ export class Tab3Page{
   encodedData: '';
   encodeData: any;
   inputData: any;
+	testData:any; 	  
 
   constructor(
 
@@ -28,6 +29,7 @@ export class Tab3Page{
     await this.storage.create();
     await this.storage.set('name', 'Mr. Ionitron');
 	 const name = await this.storage.get('name');
+		this.testData = name;	 
 
   }
 
